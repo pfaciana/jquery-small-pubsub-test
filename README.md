@@ -183,3 +183,5 @@ isValid = $.publish('eventName', true, 1);
 // isValid === false
 // 1 < 100, but 1 !> 25, so false
 ```
+
+test
