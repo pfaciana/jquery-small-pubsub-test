@@ -1,6 +1,6 @@
 {
 	"name": "jquery-small-pubsub-new",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A really small pub/sub implementation for jQuery.",
 	"main": "src/pubsub.js",
 	"type": "module",
@@ -11,7 +11,8 @@
 	"scripts": {
 		"build": "rollup -c",
 		"build:watch": "rollup -c --watch",
-		"test": "vitest"
+		"test": "vitest run",
+		"test:watch": "vitest"
 	},
 	"author": "Phil Faciana <phil@renderdev.com> (https://renderdev.com/)",
 	"license": "MIT",
