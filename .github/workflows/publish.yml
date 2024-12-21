@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout Codefm
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Fetch all history for all branches and tags
@@ -64,18 +64,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEBUG_MODE: ${{ vars.DEBUG_MODE || '0' }}
 
-      - name: Show tags
-        run: git tag -l
-
-      - name: Get local package version
-        run: node -p "require('./package.json').version"
-
-      - name: git pull origin
-        run: git pull origin
-
-      - name: Get local package version
-        run: node -p "require('./package.json').version"
-
   create-release-and-publish:
     needs: get-release-tag
     if: needs.get-release-tag.outputs.tag-name != ''
@@ -88,24 +76,7 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history for all branches and tags
           fetch-tags: true  # Fetch all tags
-          ref: ${{ github.ref }} # Get the latest code
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Show tags
-        run: git tag -l
-
-      - name: Get local package version
-        run: node -p "require('./package.json').version"
-
-      - name: git pull origin
-        run: git pull origin
-
-      - name: Get local package version
-        run: node -p "require('./package.json').version"
+          ref: ${{ github.ref }} # Get the latest code updated from the previous job
 
       - name: Create Changelog
         id: create_changelog
@@ -151,6 +122,11 @@ jobs:
           files: |
             CHANGELOG.md
             DEVELOPER_CHANGELOG.md
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Publish to NPM
         run: npm publish
