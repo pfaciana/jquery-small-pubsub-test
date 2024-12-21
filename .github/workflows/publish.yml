@@ -82,6 +82,30 @@ jobs:
         with:
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Show tags
+        run: git tag -l
+
+      - name: Get local package version
+        run: node -p "require('./package.json').version"
+
+      - name: git fetch --all
+        run: git fetch --all
+
+      - name: Get local package version
+        run: node -p "require('./package.json').version"
+
+      - name: git checkou
+        run: git checkout ${{ github.ref }}
+
+      - name: Get local package version
+        run: node -p "require('./package.json').version"
+
+      - name: git pull origin
+        run: git pull origin ${{ github.ref }}
+
+      - name: Get local package version
+        run: node -p "require('./package.json').version"
+
       - name: Create Changelog
         id: create_changelog
         uses: pfaciana/conventional-commits-changelog@v1
