@@ -7,4 +7,5 @@ const isPubSubLoaded = (await import('../src/pubsub.js')).default
 
 test('test', () => {
 	expect(isPubSubLoaded).toStrictEqual(true)
+	expect(false).toStrictEqual(true)
 })
