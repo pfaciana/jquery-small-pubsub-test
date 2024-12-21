@@ -64,6 +64,18 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEBUG_MODE: ${{ vars.DEBUG_MODE || '0' }}
 
+      - name: Show tags
+        run: git tag -l
+
+      - name: Get local package version
+        run: node -p "require('./package.json').version"
+
+      - name: git pull origin
+        run: git pull origin
+
+      - name: Get local package version
+        run: node -p "require('./package.json').version"
+
   create-release-and-publish:
     needs: get-release-tag
     if: needs.get-release-tag.outputs.tag-name != ''
