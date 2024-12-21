@@ -18,7 +18,7 @@ const config = [
 	{
 		input: 'src/pubsub.js',
 		output: [
-			{ file: 'dist/pubsub.js', format: 'iife', name: 'phil' },
+			{ file: 'dist/pubsub.js', format: 'iife' },
 			{ file: 'dist/pubsub.min.js', format: 'iife', plugins: [minify(), brotli({ options: { level: 11 } }), filesize(), eolOutput()] },
 		],
 		plugins: [
@@ -34,7 +34,7 @@ const config = [
 	{
 		input: 'src/pubsub.js',
 		output: [
-			{ file: 'dist/pubsub.legacy.js', format: 'iife', name: 'phil' },
+			{ file: 'dist/pubsub.legacy.js', format: 'iife' },
 			{ file: 'dist/pubsub.legacy.min.js', format: 'iife', plugins: [minify(), brotli({ options: { level: 11 } }), filesize(), eolOutput()] },
 		],
 		plugins: [

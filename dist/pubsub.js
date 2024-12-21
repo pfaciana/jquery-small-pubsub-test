@@ -1,4 +1,4 @@
-var phil = (function () {
+(function () {
 	'use strict';
 
 	var pubsub = (function($, undefined1) {
