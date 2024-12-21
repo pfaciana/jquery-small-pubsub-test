@@ -77,6 +77,11 @@ jobs:
           fetch-depth: 0  # Fetch all history for all branches and tags
           fetch-tags: true  # Fetch all tags
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          registry-url: 'https://registry.npmjs.org'
+
       - name: Create Changelog
         id: create_changelog
         uses: pfaciana/conventional-commits-changelog@v1
@@ -122,10 +127,11 @@ jobs:
             CHANGELOG.md
             DEVELOPER_CHANGELOG.md
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          registry-url: 'https://registry.npmjs.org'
+      - name: Show tags
+        run: git tag -l
+
+      - name: Get local package version
+        run: node -p "require('./package.json').version"
 
       - name: Publish to NPM
         run: npm publish
