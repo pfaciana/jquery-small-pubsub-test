@@ -76,6 +76,7 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history for all branches and tags
           fetch-tags: true  # Fetch all tags
+          ref: ${{ github.ref }} # Get the latest code
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -89,7 +90,7 @@ jobs:
         run: node -p "require('./package.json').version"
 
       - name: git pull origin
-        run: git pull origin ${{ github.ref }}
+        run: git pull origin
 
       - name: Get local package version
         run: node -p "require('./package.json').version"
