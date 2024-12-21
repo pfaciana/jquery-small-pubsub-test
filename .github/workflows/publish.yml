@@ -88,18 +88,6 @@ jobs:
       - name: Get local package version
         run: node -p "require('./package.json').version"
 
-      - name: git fetch --all
-        run: git fetch --all
-
-      - name: Get local package version
-        run: node -p "require('./package.json').version"
-
-      - name: git checkou
-        run: git checkout ${{ github.ref }}
-
-      - name: Get local package version
-        run: node -p "require('./package.json').version"
-
       - name: git pull origin
         run: git pull origin ${{ github.ref }}
 
@@ -150,12 +138,6 @@ jobs:
           files: |
             CHANGELOG.md
             DEVELOPER_CHANGELOG.md
-
-      - name: Show tags
-        run: git tag -l
-
-      - name: Get local package version
-        run: node -p "require('./package.json').version"
 
       - name: Publish to NPM
         run: npm publish
