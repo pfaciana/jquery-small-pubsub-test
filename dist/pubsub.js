@@ -1,4 +1,4 @@
-var _0357 = (function () {
+var _0405 = (function () {
 	'use strict';
 
 	var pubsub = (function($, undefined1) {
