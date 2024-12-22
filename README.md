@@ -1,4 +1,4 @@
-# jQuery Small Pub/Sub
+# jQuery Small Pub/Sub - TESTING ONLY DO NOT USE !!!
 
 A really small pub/sub implementation for jQuery.
 
