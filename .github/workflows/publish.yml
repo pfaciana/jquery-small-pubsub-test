@@ -5,7 +5,7 @@ on:
     inputs:
       logLevel:
         description: Log level
-        required: true
+        required: false
         default: warning
         type: choice
         options:
@@ -14,20 +14,20 @@ on:
           - debug
       print_tags:
         description: True to print to STDOUT
-        required: true
+        required: false
         type: boolean
       tags:
         description: Test scenario tags
-        required: true
+        required: false
         type: string
       count:
         description: Test count
-        required: true
+        required: false
         type: number
       environment:
         description: Environment to run tests against
+        required: false
         type: environment
-        required: true
   push:
     branches:
       - master
@@ -42,11 +42,11 @@ jobs:
     steps:
       - name: Print inputs
         run: |
-          echo "Name: `${{ github.event.inputs.name }}`"
-          echo "Count: `${{ github.event.inputs.count }}`"
-          echo "Environment: `${{ github.event.inputs.environment }}`"
-          echo "Debug Mode: `${{ github.event.inputs.debug_mode }}`"
-          echo "Deploy Target: `${{ github.event.inputs.deploy_target }}`"
+          echo "Name: |${{ github.event.inputs.name }}|"
+          echo "Count: |${{ github.event.inputs.count }}|"
+          echo "Environment: |${{ github.event.inputs.environment }}|"
+          echo "Debug Mode: |${{ github.event.inputs.debug_mode }}|"
+          echo "Deploy Target: |${{ github.event.inputs.deploy_target }}|"
 
       - name: Checkout Code
         uses: actions/checkout@v4
