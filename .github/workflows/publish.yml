@@ -3,31 +3,16 @@ name: Publish
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: Log level
+      force-release:
+        description: The type of release to force (patch, minor, major, "")
         required: false
-        default: warning
+        default: ""
         type: choice
         options:
-          - info
-          - warning
-          - debug
-      print_tags:
-        description: True to print to STDOUT
-        required: false
-        type: boolean
-      tags:
-        description: Test scenario tags
-        required: false
-        type: string
-      count:
-        description: Test count
-        required: false
-        type: number
-      environment:
-        description: Environment to run tests against
-        required: false
-        type: environment
+          - ""
+          - patch
+          - minor
+          - major
   push:
     branches:
       - master
@@ -42,11 +27,9 @@ jobs:
     steps:
       - name: Print inputs
         run: |
-          echo "Log level: |${{ github.event.inputs.logLevel }}|"
-          echo "Print?: |${{ github.event.inputs.print_tags }}|"
-          echo "Tags: |${{ github.event.inputs.tags }}|"
-          echo "Count: |${{ github.event.inputs.count }}|"
-          echo "Environment: |${{ github.event.inputs.environment }}|"
+          echo "Force Release Type: |${{ github.event.inputs.force-release }}|"
+          echo "Force Release Type Fallback A: |${{ github.event.inputs.force-release || '' }}|"
+          echo "Force Release Type Fallback B: |${{ github.event.inputs.force-release || '-' }}|"
 
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -83,6 +66,7 @@ jobs:
         with:
           json-files: package.json
           release-type: patch
+          force-release: ${{ github.event.inputs.force-release || '' }}
           commit-message: Update version to {version}
           tag-message: Release {tag}
         env:
