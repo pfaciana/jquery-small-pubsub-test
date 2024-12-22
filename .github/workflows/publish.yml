@@ -25,12 +25,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Print inputs
-        run: |
-          echo "Force Release Type: |${{ github.event.inputs.force-release }}|"
-          echo "Force Release Type Fallback A: |${{ github.event.inputs.force-release || '' }}|"
-          echo "Force Release Type Fallback B: |${{ github.event.inputs.force-release || '-' }}|"
-
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
