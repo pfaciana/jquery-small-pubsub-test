@@ -40,6 +40,14 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Print inputs
+        run: |
+          echo "Name: `${{ github.event.inputs.name }}`"
+          echo "Count: `${{ github.event.inputs.count }}`"
+          echo "Environment: `${{ github.event.inputs.environment }}`"
+          echo "Debug Mode: `${{ github.event.inputs.debug_mode }}`"
+          echo "Deploy Target: `${{ github.event.inputs.deploy_target }}`"
+
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
