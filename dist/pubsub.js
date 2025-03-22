@@ -8,11 +8,8 @@
 	    }
 	    var o = $({});
 	    function byPriority(a, b) {
-	        var _a_data, _b_data;
-	        var _a_data_priority;
-	        var p1 = (_a_data_priority = a === null || a === void 0 ? void 0 : (_a_data = a.data) === null || _a_data === void 0 ? void 0 : _a_data.priority) !== null && _a_data_priority !== void 0 ? _a_data_priority : 10;
-	        var _b_data_priority;
-	        var p2 = (_b_data_priority = b === null || b === void 0 ? void 0 : (_b_data = b.data) === null || _b_data === void 0 ? void 0 : _b_data.priority) !== null && _b_data_priority !== void 0 ? _b_data_priority : 10;
+	        var p1 = a?.data?.priority ?? 10;
+	        var p2 = b?.data?.priority ?? 10;
 	        return p1 - p2;
 	    }
 	    $.getSubscribedEvents = function() {
@@ -70,8 +67,7 @@
 	    $.publish = function() {
 	        var parameters = Object.values(arguments), name = parameters.shift(), events = $.getSubscribedEvents(name);
 	        events.forEach(function(event) {
-	            var _event_data;
-	            const response = event.handler.apply((_event_data = event.data) !== null && _event_data !== void 0 ? _event_data : {}, parameters);
+	            const response = event.handler.apply(event.data ?? {}, parameters);
 	            if (typeof response !== 'undefined') {
 	                parameters[0] = response;
 	            }

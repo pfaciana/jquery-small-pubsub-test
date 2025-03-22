@@ -1,6 +1,6 @@
 {
 	"name": "jquery-small-pubsub-new",
-	"version": "1.1.1",
+	"version": "1.2.0",
 	"description": "A really small pub/sub implementation for jQuery.",
 	"main": "src/pubsub.js",
 	"type": "module",
@@ -12,7 +12,8 @@
 		"build": "rollup -c",
 		"build:watch": "rollup -c --watch",
 		"test": "vitest run",
-		"test:watch": "vitest"
+		"test:watch": "vitest",
+		"build:archive": "rollup -c .archive/rollup.config.js"
 	},
 	"author": "Phil Faciana <phil@renderdev.com> (https://renderdev.com/)",
 	"license": "MIT",
@@ -27,8 +28,10 @@
 		"jsdom": "^25.0.1",
 		"rollup": "^4.28.1",
 		"rollup-plugin-brotli": "^3.1.0",
+		"rollup-plugin-concat-glob": "^1.0.0",
 		"rollup-plugin-eol": "^1.0.0",
 		"rollup-plugin-filesize-gzbr": "^1.2.1",
+		"rollup-plugin-string": "^3.0.0",
 		"rollup-plugin-swc3": "^0.12.1",
 		"vitest": "^2.1.8"
 	}
