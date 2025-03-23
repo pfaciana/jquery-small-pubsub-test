@@ -57,7 +57,7 @@ jobs:
 
       - name: Sync Versions
         id: sync_versions
-        uses: ./.github/actions/version-sync
+        uses: pfaciana/version-sync@v1
         with:
           json-files: package.json
           release-type: patch
