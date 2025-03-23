@@ -17,7 +17,7 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <p>Adding additional description to test deployment</p>
+        <p>Adding additional description for testing deployment</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
