@@ -3,6 +3,8 @@ name: Deploy Docusaurus to GitHub Pages
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'docs/**'  # Only trigger on changes to files in docs directory
   workflow_dispatch:
 
 permissions:

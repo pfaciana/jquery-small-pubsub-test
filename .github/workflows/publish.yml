@@ -50,6 +50,7 @@ jobs:
           config-json: package.json
           release-type: patch
           commit-message: "build: run build script"
+          exclude-files: no
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEBUG_MODE: ${{ vars.DEBUG_MODE || '0' }}
