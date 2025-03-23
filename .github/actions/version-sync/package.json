@@ -5,9 +5,6 @@
 	"main": "index.js",
 	"author": "Phil Faciana <phil@renderdev.com> (https://renderdev.com/)",
 	"license": "MIT",
-	"scripts": {
-		"test": "vitest"
-	},
 	"dependencies": {
 		"@actions/core": "~1.10",
 		"@actions/exec": "^1.1",
