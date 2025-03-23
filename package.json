@@ -1,6 +1,6 @@
 {
 	"name": "jquery-small-pubsub-new",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"description": "A really small pub/sub implementation for jQuery.",
 	"main": "src/pubsub.js",
 	"type": "module",
