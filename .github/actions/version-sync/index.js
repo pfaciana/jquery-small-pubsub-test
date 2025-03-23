@@ -47,9 +47,9 @@ async function run() {
 
 		versions.forEach(v => {
 			if (v.version !== currentVersion) {
-				console.log(`Version mismatch: ${v.file} has version ${v.version}, while current tag version is ${currentVersion}`)
+				console.log(`Version mismatch: ${v.file} has version: ${v.version}, while current tag version is: ${currentVersion}`)
 			} else {
-				console.log(`Version match: ${v.file} has version ${v.version}`)
+				console.log(`Version match: ${v.file} has version: ${v.version}`)
 			}
 		})
 
